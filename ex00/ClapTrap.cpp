@@ -1,0 +1,131 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tjorge-l < tjorge-l@student.42lisboa.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/09 17:04:06 by tjorge-l          #+#    #+#             */
+/*   Updated: 2025/06/10 11:26:01 by tjorge-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+# include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(std::string name) : _name(name)	// Default Constructor
+{
+	std::cout << "Default constructor called" << std::endl;
+	_energy = 10;
+	_health = 10;
+	_damage = 0;
+	return ;
+}
+
+ClapTrap::ClapTrap(ClapTrap const & src)	// Copy Constructor
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
+	return ;
+}
+
+ClapTrap::~ClapTrap(void)
+{
+	std::cout << "Destructor called" << std::endl;
+	return ;
+}
+
+ClapTrap &	ClapTrap::operator=(ClapTrap const & rhs)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &rhs)
+	{
+		this->_name = rhs._name;
+		this->_energy = rhs._energy;
+		this->_health = rhs._health;
+		this->_damage = rhs._damage;
+	}
+	return (*this);
+}
+
+std::string		ClapTrap::get_name(void)
+{
+	return (this->_name);
+}
+
+unsigned int	ClapTrap::get_health(void)
+{
+	return (this->_health);
+}
+
+unsigned int	ClapTrap::get_energy(void)
+{
+	return (this->_energy);
+}
+
+unsigned int	ClapTrap::get_damage(void)
+{
+	return (this->_damage);
+}
+
+void	ClapTrap::attack(const std::string & target)
+{
+	if (this->_energy != 0)
+	{
+		std::cout
+			<< "ClapTrap " << this->_name << " attacks "
+			<< target << ", causing " << this->_damage
+			<< " points of damage!"
+			<< std::endl;
+		this->_energy--;
+	}
+	else
+		std::cout
+			<< "ClapTrap " << this->_name
+			<< " is out of energy."
+			<< std::endl;
+	return ;
+}
+
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	if (this->_health != 0)
+	{
+		std::cout
+			<< "ClapTrap " << this->_name 
+			<< " has taken " << amount
+			<< " points of damage!"
+			<< std::endl;
+		if (amount >= this->_health)
+		{
+			std::cout
+			<< "ClapTrap " << this->_name 
+			<< " has died!"
+			<< std::endl;
+			this->_health = 0;
+		}
+		else
+			this->_health -= amount;
+	}
+	return ;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	if (this->_energy != 0)
+	{
+		std::cout
+			<< "ClapTrap " << this->_name << " has gained "
+			<< amount << " health points! "
+			<< std::endl;
+		if (this->_health + amount > UINT_MAX)
+			this->_health = UINT_MAX;
+		else
+			this->_health += amount;
+	}
+	else
+		std::cout
+		<< "ClapTrap " << this->_name
+		<< " is out of energy."
+		<< std::endl;
+	return ;
+}
