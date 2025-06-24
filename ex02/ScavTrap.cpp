@@ -49,7 +49,7 @@ ScavTrap &	ScavTrap::operator=(ScavTrap const & rhs)
 
 void	ScavTrap::attack(const std::string & target)
 {
-	if (this->_energy != 0)
+	if (this->_energy != 0 && this->_health != 0)
 	{
 		std::cout
 			<< "ScavTrap " << this->_name << " attacks "
@@ -61,7 +61,7 @@ void	ScavTrap::attack(const std::string & target)
 	else
 		std::cout
 			<< "ScavTrap " << this->_name
-			<< " is out of energy."
+			<< " is out of energy or dead."
 			<< std::endl;
 	return ;
 }

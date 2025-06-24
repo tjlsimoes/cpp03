@@ -69,7 +69,7 @@ unsigned int	ClapTrap::get_damage(void)
 
 void	ClapTrap::attack(const std::string & target)
 {
-	if (this->_energy != 0)
+	if (this->_energy != 0 && this->_health != 0)
 	{
 		std::cout
 			<< "ClapTrap " << this->_name << " attacks "
@@ -81,7 +81,7 @@ void	ClapTrap::attack(const std::string & target)
 	else
 		std::cout
 			<< "ClapTrap " << this->_name
-			<< " is out of energy."
+			<< " is out of energy or... dead..."
 			<< std::endl;
 	return ;
 }
@@ -111,7 +111,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_energy != 0)
+	if (this->_energy != 0 && this->_health != 0)
 	{
 		std::cout
 			<< "ClapTrap " << this->_name << " has gained "
@@ -121,11 +121,12 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			this->_health = UINT_MAX;
 		else
 			this->_health += amount;
+		this->_energy--;
 	}
 	else
 		std::cout
 		<< "ClapTrap " << this->_name
-		<< " is out of energy."
+		<< " is out of energy or... dead..."
 		<< std::endl;
 	return ;
 }

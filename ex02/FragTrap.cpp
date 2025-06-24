@@ -49,7 +49,7 @@ FragTrap &	FragTrap::operator=(FragTrap const & rhs)
 
 void	FragTrap::attack(const std::string & target)
 {
-	if (this->_energy != 0)
+	if (this->_energy != 0 && this->_health != 0)
 	{
 		std::cout
 			<< "FragTrap " << this->_name << " attacks "
