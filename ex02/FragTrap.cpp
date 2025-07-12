@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjorge-l < tjorge-l@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: tjorge-l <tjorge-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:04:06 by tjorge-l          #+#    #+#             */
-/*   Updated: 2025/06/10 12:17:07 by tjorge-l         ###   ########.fr       */
+/*   Updated: 2025/07/12 11:26:09 by tjorge-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,11 @@ void	FragTrap::attack(const std::string & target)
 
 void	FragTrap::highFivesGuys(void)
 {
+	if (this->_health != 0 && this->_energy != 0)
+	{
 		std::cout
 			<< "FragTrap " << this->_name
 			<< " asks, do you want to high five?"
 			<< std::endl;
+	}
 }
