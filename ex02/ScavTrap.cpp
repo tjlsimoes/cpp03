@@ -3,18 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjorge-l < tjorge-l@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: tjorge-l <tjorge-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:04:06 by tjorge-l          #+#    #+#             */
-/*   Updated: 2025/06/10 12:10:17 by tjorge-l         ###   ########.fr       */
+/*   Updated: 2025/07/12 11:38:30 by tjorge-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _name(name)	// Default Constructor
+ScavTrap::ScavTrap() : ClapTrap(), _name("Scav")	// Default Constructor
 {
 	std::cout << "Scav Default constructor called" << std::endl;
+	_health = 100;
+	_energy = 50;
+	_damage = 20;
+	return ;
+}
+
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _name(name)	// Parameterized Constructor
+{
+	std::cout << "Scav Parameterized constructor called" << std::endl;
 	_health = 100;
 	_energy = 50;
 	_damage = 20;

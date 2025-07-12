@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjorge-l < tjorge-l@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: tjorge-l <tjorge-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:43:44 by tjorge-l          #+#    #+#             */
-/*   Updated: 2025/06/10 12:19:01 by tjorge-l         ###   ########.fr       */
+/*   Updated: 2025/07/12 11:37:20 by tjorge-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 class FragTrap : public ClapTrap
 {
 	public:
-		FragTrap(std::string name);					// Canonical: Default Constructor
+		FragTrap();									// Canonical: Default Constructor
+		FragTrap(std::string name);					// Canonical: Parameterized Constructor
 		FragTrap(FragTrap const & src);				// Canonical: Copy Constructor
 		~FragTrap(void);							// Canonical: Destructor
 		

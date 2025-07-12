@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjorge-l < tjorge-l@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: tjorge-l <tjorge-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:43:44 by tjorge-l          #+#    #+#             */
-/*   Updated: 2025/06/10 11:59:09 by tjorge-l         ###   ########.fr       */
+/*   Updated: 2025/07/12 11:38:07 by tjorge-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 class ScavTrap : public ClapTrap
 {
 	public:
-		ScavTrap(std::string name);					// Canonical: Default Constructor
+		ScavTrap();									// Canonical: Default Constructor
+		ScavTrap(std::string name);					// Parameterized Constructor
 		ScavTrap(ScavTrap const & src);				// Canonical: Copy Constructor
 		~ScavTrap(void);							// Canonical: Destructor
 		

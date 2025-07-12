@@ -6,15 +6,24 @@
 /*   By: tjorge-l <tjorge-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:04:06 by tjorge-l          #+#    #+#             */
-/*   Updated: 2025/07/12 11:26:09 by tjorge-l         ###   ########.fr       */
+/*   Updated: 2025/07/12 11:37:04 by tjorge-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name), _name(name)	// Default Constructor
+FragTrap::FragTrap() : ClapTrap(), _name("FragTrap")	// Default Constructor
 {
 	std::cout << "Frag Default constructor called" << std::endl;
+	_health = 100;
+	_energy = 100;
+	_damage = 30;
+	return ;
+}
+
+FragTrap::FragTrap(std::string name) : ClapTrap(name), _name(name)	// Parameterized Constructor
+{
+	std::cout << "Frag Parameterized constructor called" << std::endl;
 	_health = 100;
 	_energy = 100;
 	_damage = 30;
